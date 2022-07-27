@@ -1,5 +1,12 @@
 import PropTypes from 'prop-types';
 
-<button type="submit" class="button">
-  <span class="button-label">Search</span>
-</button>;
+export default function onButton({ onClick }) {
+  return (
+    <button type="button" onClick={onClick}>
+      Load more
+    </button>
+  );
+}
+onButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
