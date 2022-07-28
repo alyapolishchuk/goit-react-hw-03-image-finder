@@ -1,15 +1,14 @@
-import { ImgGalleryLi, ImgGalleryImg } from '../ImageGallery.styles';
 import PropTypes from 'prop-types';
 
 const ImageGalleryItem = ({ smallImg, largeImg, handlerOpenModal }) => {
   return (
-    <ImgGalleryLi>
-      <ImgGalleryImg
+    <li>
+      <img
         src={smallImg}
         alt=""
         onClick={() => handlerOpenModal(largeImg)}
       />
-    </ImgGalleryLi>
+    </li>
   );
 };
 

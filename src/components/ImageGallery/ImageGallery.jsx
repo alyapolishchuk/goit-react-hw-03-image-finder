@@ -3,7 +3,7 @@ import { Loader } from 'components/Loader/Loader';
 import { Component } from 'react';
 
 import { ImageGalleryItem } from './ImageGalleryItem/ImageGalleryItem';
-import { createRequest } from '../../api/apirequest';
+import { createRequest } from '../../API/pixabay';
 import PropTypes from 'prop-types';
 
 const STATUS = {
@@ -69,19 +69,12 @@ class ImageGallery extends Component {
       return <p>{error}</p>;
     }
     if (!imageList.length) {
-      return (
-        <p
-          style={{
-            margin: '100px auto',
-            fontSize: '40px',
-          }}
-        >{`Please, enter the search request`}</p>
-      );
+      return <p>{`Please, enter the search request`}</p>;
     }
     if (status === STATUS.success) {
       return (
         <>
-          <ImgGallery>
+          <ul>
             {imageList.map(({ id, webformatURL, largeImageURL }) => {
               return (
                 <ImageGalleryItem
@@ -92,7 +85,7 @@ class ImageGallery extends Component {
                 />
               );
             })}
-          </ImgGallery>
+          </ul>
           {totalHits >= 12 * page && <Button onClick={this.loadMore} />}
         </>
       );

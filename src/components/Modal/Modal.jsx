@@ -1,7 +1,5 @@
 import PropTypes from 'prop-types';
 import { Component } from 'react';
-import { ModalBox, Backdrop, ModalImg } from './Modal.styles';
-//--------------------------------------------------------------------------//
 
 class Modal extends Component {
   static propTypes = {
@@ -28,11 +26,11 @@ class Modal extends Component {
 
   render() {
     return (
-      <Backdrop onClick={this.handkerBackDrop}>
-        <ModalBox>
-          <ModalImg src={this.props.image} alt="def" />
-        </ModalBox>
-      </Backdrop>
+      <div onClick={this.handkerBackDrop}>
+        <div>
+          <img src={this.props.image} alt="" />
+        </div>
+      </div>
     );
   }
 }

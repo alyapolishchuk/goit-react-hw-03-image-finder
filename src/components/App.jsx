@@ -26,14 +26,7 @@ export class App extends Component {
   render() {
     const { query, image } = this.state;
     return (
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr0',
-          gridGap: '16px',
-          paddingBottom: '24px',
-        }}
-      >
+      <div>
         <Searchbar onSubmit={this.handlerForm} />
 
         <ImageGallery query={query} handlerOpenModal={this.handlerOpenModal} />
