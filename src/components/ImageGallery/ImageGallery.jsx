@@ -1,7 +1,7 @@
 import { Button } from 'components/Button/Button';
 import { Loader } from 'components/Loader/Loader';
 import { Component } from 'react';
-
+import css from './ImageGallery.module.css';
 import { ImageGalleryItem } from './ImageGalleryItem/ImageGalleryItem';
 import { createRequest } from '../../API/pixabay';
 import PropTypes from 'prop-types';
@@ -63,7 +63,7 @@ class ImageGallery extends Component {
     const { imageList, page, totalHits, status, error } = this.state;
 
     if (status === STATUS.loading) {
-      return <Loader />;
+      return <Loader className={css.loader} />;
     }
     if (status === STATUS.error) {
       return <p>{error}</p>;
@@ -74,7 +74,7 @@ class ImageGallery extends Component {
     if (status === STATUS.success) {
       return (
         <>
-          <ul>
+          <ul className={css.ul}>
             {imageList.map(({ id, webformatURL, largeImageURL }) => {
               return (
                 <ImageGalleryItem

@@ -2,10 +2,10 @@ import { MutatingDots } from 'react-loader-spinner';
 const Loader = () => {
   return (
     <MutatingDots
-      height="100"
-      width="100"
-      color="#4fa94d"
-      secondaryColor="#4fa94d"
+      height="200"
+      width="200"
+      color="#cc40d3"
+      secondaryColor="#00ccff"
       radius="12.5"
       ariaLabel="mutating-dots-loading"
       wrapperStyle={{}}

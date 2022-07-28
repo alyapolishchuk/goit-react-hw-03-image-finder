@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { Component } from 'react';
 import { toast } from 'react-toastify';
+import css from './Searchbar.module.css';
 class Searchbar extends Component {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
@@ -37,13 +38,14 @@ class Searchbar extends Component {
   render() {
     const { query } = this.state;
     return (
-      <header>
+      <header className={css.header}>
         <form onSubmit={this.handlerSubmit}>
-          <button type="submit">
-            <label>Search</label>
+          <button className={css.button} type="submit">
+            Search
           </button>
 
           <input
+            className={css.input}
             type="text"
             name="query"
             value={query}
