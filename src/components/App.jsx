@@ -1,21 +1,24 @@
 import { Component } from 'react';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { ImgGal } from './ImageGallery/ImageGallery';
 import { Modal } from './Modal/Modal';
 import { Searchbar } from './Searchbar/Searchbar';
+import { ImageGallery } from './ImageGallery/ImageGallery';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 export class App extends Component {
   state = {
     image: '',
     query: '',
   };
-  openModal = img => {
+  // обробник кліка на картинку
+  handlerOpenModal = img => {
     this.setState({ image: img });
   };
-  closeModal = () => {
+  //закриття модалки
+  handlerCloseModal = () => {
     this.setState({ image: '' });
   };
+  //дізнатись квери строку
   handlerForm = query => {
     this.setState({ query });
   };
@@ -24,20 +27,18 @@ export class App extends Component {
     const { query, image } = this.state;
     return (
       <div
-        style={
-          {
-            // display: 'grid',
-            // gridTemplateColumns: '1fr0',
-            // gridGap: '16px',
-            // paddingBottom: '24px',
-          }
-        }
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr0',
+          gridGap: '16px',
+          paddingBottom: '24px',
+        }}
       >
         <Searchbar onSubmit={this.handlerForm} />
 
-        <ImgGal query={query} openModal={this.openModal} />
+        <ImageGallery query={query} handlerOpenModal={this.handlerOpenModal} />
 
-        {image && <Modal image={image} onClose={this.closeModal} />}
+        {image && <Modal image={image} onClose={this.handlerCloseModal} />}
         <ToastContainer />
       </div>
     );

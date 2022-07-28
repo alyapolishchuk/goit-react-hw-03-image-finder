@@ -1,7 +1,14 @@
 import PropTypes from 'prop-types';
 import { Component } from 'react';
+import {
+  SearchHeader,
+  SearchBtn,
+  SearchForm,
+  SearchLabel,
+  SearchInput,
+} from './Searchbar.styles';
 import { toast } from 'react-toastify';
-
+//---------------------------------------------//
 class Searchbar extends Component {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
@@ -38,23 +45,23 @@ class Searchbar extends Component {
   render() {
     const { query } = this.state;
     return (
-      <header>
-        <form onSubmit={this.handlerSubmit}>
-          <button type="submit">
-            <span>Search</span>
-          </button>
+      <SearchHeader>
+        <SearchForm onSubmit={this.handlerSubmit}>
+          <SearchBtn type="submit">
+            <SearchLabel>Search</SearchLabel>
+          </SearchBtn>
 
-          <input
+          <SearchInput
             type="text"
             name="query"
             value={query}
-            autocomplete="off"
+            autoComplete="off"
             onChange={this.handlerInput}
-            autofocus
+            autoFocus
             placeholder="Search images and photos"
           />
-        </form>
-      </header>
+        </SearchForm>
+      </SearchHeader>
     );
   }
 }

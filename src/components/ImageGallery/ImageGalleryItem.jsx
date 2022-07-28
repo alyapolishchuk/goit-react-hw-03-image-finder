@@ -11,5 +11,5 @@ export default function ImgGalItem({ webformat, largeImage, onIMG }) {
 ImgGalItem.propTypes = {
   webformat: PropTypes.string.isRequired,
   largeImage: PropTypes.string.isRequired,
-  onIMG: PropTypes.func.isRequired,
+  onIMG: PropTypes.func,
 };

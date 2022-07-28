@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import { Component } from 'react';
+import { ModalBox, Backdrop, ModalImg } from './Modal.styles';
+//--------------------------------------------------------------------------//
 
 class Modal extends Component {
   static propTypes = {
@@ -12,12 +14,13 @@ class Modal extends Component {
   componentWillUnmount() {
     window.removeEventListener('keydown', this.onTap);
   }
+
   onTap = e => {
     if (e.code === 'Escape') {
       this.props.onClose();
     }
   };
-  openBackdrop = e => {
+  handkerBackDrop = e => {
     if (e.target === e.currentTarget) {
       this.props.onClose();
     }
@@ -25,11 +28,11 @@ class Modal extends Component {
 
   render() {
     return (
-      <div onClick={this.openBackdrop}>
-        <div>
-          <img src={this.props.image} alt="" />
-        </div>
-      </div>
+      <Backdrop onClick={this.handkerBackDrop}>
+        <ModalBox>
+          <ModalImg src={this.props.image} alt="def" />
+        </ModalBox>
+      </Backdrop>
     );
   }
 }
