@@ -1,6 +1,6 @@
 import { Component } from 'react';
+import { onAPI } from '../../API/pixabay';
 import PropTypes from 'prop-types';
-import onAPI from 'API/pixabay';
 import ImgGalItem from './ImageGalleryItem';
 import Button from 'components/Button/Button';
 import Loader from 'components/Loader/Loader';

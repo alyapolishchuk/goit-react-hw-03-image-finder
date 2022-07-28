@@ -3,7 +3,7 @@ import axios from 'axios';
 const API_KEY = '28351451-92068ca5a052609c75a292b60';
 const BASE_URL = 'https://pixabay.com/api/';
 
-export default async function onAPI({ name, page = 1 }) {
+async function onAPI(name, page = 1) {
   const parametrs = {
     url: BASE_URL,
     params: {
@@ -18,3 +18,5 @@ export default async function onAPI({ name, page = 1 }) {
   };
   return await axios(parametrs);
 }
+
+export { onAPI };
