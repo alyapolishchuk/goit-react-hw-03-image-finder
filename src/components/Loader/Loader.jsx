@@ -1,21 +1,12 @@
-import { MutatingDots } from 'react-loader-spinner';
+import { FallingLines } from 'react-loader-spinner';
 const Loader = () => {
   return (
-    <MutatingDots
-      height="100"
+    <FallingLines
+      color="#4fa94d"
       width="100"
-      color="#4d6aa9"
-      secondaryColor="#4d6aa9"
-      radius="12.5"
-      ariaLabel="mutating-dots-loading"
-      wrapperStyle={{
-        dispay: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-      wrapperClass=""
       visible={true}
+      ariaLabel="falling-lines-loading"
     />
   );
-}
+};
 export { Loader };
